@@ -1,0 +1,15 @@
+import tkinter as tk
+
+def key_pressed(event):
+    with open("keys.txt", "a") as file:
+        file.write(event.keysym + "\n")
+
+root = tk.Tk()
+root.title("Keyboard Event Logger")
+
+root.bind("<Key>", key_pressed)
+
+label = tk.Label(root, text="Type here. Keys will be logged.")
+label.pack(padx=20, pady=20)
+
+root.mainloop()
